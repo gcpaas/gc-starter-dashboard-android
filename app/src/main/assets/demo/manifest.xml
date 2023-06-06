@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!--//起始路径-->
-    <string id="launch_path">demo/index.html</string>
-    <!--//版本号-->
-    <string id="version">1</string>
-</resources>

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!--//h5起始页面路径-->
-    <string id="local_h5_enable">1</string>   <!-- 是否引用本地的h5 -->
-    <string id="launch_path">demo/index.html</string>
-    <string id="online_url">http://192.168.224.64/muidemo/</string>
-    <!-- <string id="launch_path">demo/index.html</string>-->
-    <!--  <string id="launch_path">demo/online_pd_detail.html</string>-->
-</resources>
