@@ -1,0 +1,1705 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Hello MUI</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="stylesheet" href="css/mui.min.css">
+    <style type="text/css">
+			#list {
+				/*避免导航边框和列表背景边框重叠，看起来像两条边框似得；*/
+				margin-top: -1px;
+			}
+
+
+    </style>
+    <style type="text/css">
+			li {
+				padding: 0.8em;
+				border-bottom: 1px solid #eaeaea;
+			}
+
+			li:active {
+				background: #f4f4f4;
+			}
+
+			.item {
+				display: block;
+				background: no-repeat right center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAsCAYAAAB/nHhDAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNC8yOC8xMqLz6JEAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABJ0lEQVRYhe3Wv6rCMBQG8C/VN1AEd3HSzuYO3jr4knkY0UE62xTBcp9A8A0uHhc72CZp/lQQyZmT7xfSJKeMiPDOSt6aHoEIRKAbkLKioqiCrroWkLKi+51ARAhBlEAdXlcI0gLK8u8lPBRpAYvFjCUJUw72QZRbtFzOe0O0H7kvxHhM83yfhiJdF+2c5/utCTmdLnS93rQQs2mZQogN59lOdbrqmk7HmExGrZVYAU9kzXl2cEWsgSfys1r9Hk1TmogTAABFcTFOaQJOr6mUlVO4E9B8n2zCrQHfcAAYmoKFEAPOs39dOGMMaTpXX5J6jGlTTSu3CQcsGk5IuBboK1wJ6BqOT7gS0DUcn3AlALR7gW84YHGKiOAd3gn0UV/+6xiBCHwG8AByzMrOPKV7sAAAAABJRU5ErkJggg==);
+				background-size: 12px 22px;
+				-ms-touch-action: auto;
+			}
+
+			.chs {
+				font-size: 0.8em;
+				color: #838383;
+			}
+
+    </style>
+</head>
+
+<body>
+
+<header class="mui-bar mui-bar-nav">
+    <!--<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>-->
+    <h1 class="mui-title">国创移动能力框架</h1>
+</header>
+<div class="mui-content" style="background:#FFFFFF;">
+    <ul style="list-style:none;margin:0;padding:0;text-align:left;">
+		<li onclick="debug()">
+					<span class="item">Debug
+					<div class="chs">在线调试</div>
+				</span>
+		</li>
+        <li onclick="scanGetCode()">
+					<span class="item">Barcode
+					<div class="chs">二维码扫描</div>
+				</span>
+        </li>
+        <li onclick="goNextPage('takephoto','page/takephoto.html')">
+					<span class="item">Camera
+					<div class="chs">拍照</div>
+				</span>
+        </li>
+        <li onclick="keepScreenOn()">
+					<span class="item">KeepScreenOn
+					<div class="chs">屏幕长亮</div>
+				</span>
+        </li>
+
+        <li onclick="takePhotosWithIdentity()">
+					<span class="item">CameraWithIdentity
+					<div class="chs">拍照带身份证框</div>
+				</span>
+        </li>
+        <li onclick="modifyStatus()">
+					<span class="item">modifyStatus
+					<div class="chs">设置状态栏</div>
+				</span>
+        </li>
+        <li onclick="goNextPage('pickPic','page/pickPic.html')">
+					<span class="item">Gallery
+					<div class="chs">相册操作</div>
+				</span>
+        </li>
+        <li onclick="goNextPage('screenShot','page/screenShot.html')">
+					<span class="item">Gallery
+					<div class="chs">截屏</div>
+				</span>
+        </li>
+        <li onclick="goNextPage('dbTest','page/dbTest.html')">
+					<span class="item">Database
+					<div class="chs">数据库操作</div>
+				</span>
+        </li>
+        <li onclick="recordVoice()">
+					<span class="item">Audio
+					<div class="chs">录音操作</div>
+				</span>
+        </li>
+        <li onclick="startRecordVoice()">
+					<span class="item">startRecordVoice
+					<div class="chs">开始录音</div>
+				</span>
+        </li>
+        <li onclick="cancleRecordVoice()">
+					<span class="item">cancleRecordVoice
+					<div class="chs">取消录音</div>
+				</span>
+        </li>
+        <li onclick="stopRecordVoice()">
+					<span class="item">stopRecordVoice
+					<div class="chs">停止录音</div>
+				</span>
+        </li>
+        <li onclick="playVoice()">
+					<span class="item">playVoice
+					<div class="chs">播放录音</div>
+				</span>
+        </li>
+		<li onclick="playVoiceWithNoUI()">
+					<span class="item">playVoiceWithNoUI
+					<div class="chs">播放录音</div>
+				</span>
+		</li>
+		<li onclick="stopVoiceWithNoUI()">
+					<span class="item">stopVoiceWithNoUI
+					<div class="chs">停止播放</div>
+				</span>
+		</li>
+        <li onclick="RecordVideo()">
+					<span class="item">RecordVideo
+					<div class="chs">录制视频</div>
+				</span>
+        </li>
+        <li onclick="playVideo()">
+					<span class="item">playVideo
+					<div class="chs">播放视频</div>
+				</span>
+        </li>
+        </li>
+        <li onclick="getLocationInfo()">
+					<span class="item">getLocationInfo
+					<div class="chs">定位</div>
+				</span>
+        </li>
+
+        <li onclick="startH5AssistantLocation()">
+					<span class="item">startH5AssistantLocation
+					<div class="chs">启动辅助H5页面定位</div>
+				</span>
+        </li>
+		<li onclick="stopH5AssistantLocation()">
+					<span class="item">stopH5AssistantLocation
+					<div class="chs">停止辅助H5页面定位</div>
+				</span>
+		</li>
+        </li>
+        <li onclick="addressBook();">
+					<span class="item">Contacts
+					<div class="chs">联系人操作</div>
+				</span>
+        </li>
+        </li>
+        <li onclick="goNextPage('sendMessage','page/sendMessage.html')">
+					<span class="item">Messaging
+					<div class="chs">短信</div>
+				</span>
+        </li>
+        <li onclick="goNextPage('Mark','page/waterMark.html')">
+					<span class="item">Mark
+					<div class="chs">打水印</div>
+				</span>
+        </li>
+        <li onclick="goNextPage('sign','page/sign.html')">
+					<span class="item">Electronic signature
+					<div class="chs">电子签名</div>
+				</span>
+        </li>
+        <li onclick="uploadFile()">
+        <span class="item">uploadFile
+        <div class="chs">附件上传</div>
+        </span>
+        </li>
+        <li onclick="DownLoadFile()">
+        <span class="item">DownLoadFile
+        <div class="chs">文件下载</div>
+        </span>
+        </li>
+        <li onclick="GetFileSize()">
+        <span class="item">GetFileSize
+        <div class="chs">获取文件大小</div>
+        </span>
+        </li>
+        <li onclick="CancelDownLoad()">
+        <span class="item">CancelDownLoad
+        <div class="chs">中断文件下载</div>
+        </span>
+        </li>
+        <li onclick="DeleteFile()">
+        <span class="item">DeleteFile
+        <div class="chs">文件删除</div>
+        </span>
+        </li>
+        <li onclick="changeScreenIntensity()">
+					<span class="item">changeScreenIntensity
+					<div class="chs">设置屏幕亮度值</div>
+				</span>
+        </li>
+        <li onclick="SystemBrightness()">
+					<span class="item">SystemBrightness
+					<div class="chs">获取屏幕亮度值</div>
+				</span>
+        </li>
+        <li onclick="getvoice()">
+					<span class="item">getvoice
+					<div class="chs">获取音量</div>
+				</span>
+        </li>
+        <li onclick="lockScreen()">
+					<span class="item">lockScreen
+					<div class="chs">锁屏</div>
+				</span>
+        </li>
+        <li onclick="LandscapeOrPortrait()">
+					<span class="item">LandscapeOrPortrait
+					<div class="chs">横竖屏判断</div>
+				</span>
+        </li>
+
+        <li onclick="FileIsExists()">
+        <span class="item">FileIsExists
+        <div class="chs">文件是否存在</div>
+        </span>
+        </li>
+
+
+        <li onclick="getIntent()">
+					<span class="item">getIntent
+					<div class="chs">获取getIntent</div>
+				</span>
+        </li>
+        <li onclick="showLoading()">
+					<span class="item">showLoading
+					<div class="chs">显示加载框</div>
+				</span>
+        </li>
+        <li onclick="cancelLoading()">
+					<span class="item">cancelLoading
+					<div class="chs">关闭加载框</div>
+				</span>
+        </li>
+        <li onclick="showkeyboard()">
+					<span class="item">showkeyboard
+					<div class="chs">弹出软键盘</div>
+				</span>
+        </li>
+        <li onclick="closeKeyboard()">
+					<span class="item">closeKeyboard
+					<div class="chs">关闭软键盘</div>
+				</span>
+        </li>
+        <li onclick="showToase()">
+					<span class="item">showToase
+					<div class="chs">弹出吐司</div>
+				</span>
+        </li>
+        <li onclick="showDialog()">
+					<span class="item">showDialog
+					<div class="chs">弹出Dialog</div>
+				</span>
+        </li>
+        <li onclick="stationmessage()">
+					<span class="item">stationmessage
+					<div class="chs">获取基站信息</div>
+				</span>
+        </li>
+        <li onclick="setSpference()">
+					<span class="item">setSpference
+					<div class="chs">Sharepference设置缓存</div>
+				</span>
+        </li>
+        <li onclick="getSpference()">
+					<span class="item">getSpference
+					<div class="chs">Sharepference获取缓存</div>
+				</span>
+        </li>
+        <li onclick="clearSpference()">
+					<span class="item">clearSpference
+					<div class="chs">Sharepference清除key缓存</div>
+				</span>
+        </li>
+        <li onclick="choosefile()">
+					<span class="item">choosefile
+					<div class="chs">文件选择</div>
+				</span>
+        </li>
+        <li onclick="getnetip()">
+					<span class="item">getnetip
+					<div class="chs">获取手机ip</div>
+				</span>
+        </li>
+        <li onclick="getCurrentNetType()">
+					<span class="item">getCurrentNetType
+					<div class="chs">获取当前网络状态</div>
+				</span>
+        </li>
+        <li onclick="devicesmessage()">
+					<span class="item">devicesmessage
+					<div class="chs">获取手机设备信息</div>
+				</span>
+        </li>
+
+        <li onclick="getDisplayMetrics()">
+					<span class="item">getDisplayMetrics
+					<div class="chs">获取手机屏幕像素信息</div>
+				</span>
+        </li>
+
+        <li onclick="getMemory()">
+					<span class="item">getMemory
+					<div class="chs">获取总内存和可用内存</div>
+				</span>
+        </li>
+        <li onclick="getPackageInfo()">
+					<span class="item">getPackageInfo
+					<div class="chs">获取当前app的版本信息</div>
+				</span>
+        </li>
+        <li onclick="getPackageInfobyname()">
+					<span class="item">getPackageInfobyname
+					<div class="chs">通过包名获取app的版本信息</div>
+				</span>
+        </li>
+        <li onclick="getopenappbyname()">
+					<span class="item">getopenappbyname
+					<div class="chs">通过包名打开apk</div>
+				</span>
+        </li>
+        <li onclick="openapkinstall()">
+					<span class="item">openapkinstall
+					<div class="chs">下载安装apk</div>
+				</span>
+        </li>
+
+        <li onclick="unloadApp()">
+					<span class="item">unloadApp
+					<div class="chs">卸载app</div>
+				</span>
+        </li>
+        <li onclick="telephoneCall()">
+					<span class="item">telephoneCall
+					<div class="chs">拨号</div>
+				</span>
+        </li>
+        <li onclick="finishWebview()">
+					<span class="item">finishWebview
+					<div class="chs">finishWebview</div>
+				</span>
+        </li>
+        <li onclick="upZipFile()">
+					<span class="item">upZipFile
+					<div class="chs">解压</div>
+				</span>
+        </li>
+        <li onclick="zipFile()">
+					<span class="item">zipFile
+					<div class="chs">压缩</div>
+				</span>
+        </li>
+        <li onclick="getTelephoneMessage()">
+					<span class="item">getTelephoneMessage
+					<div class="chs">获取通话记录</div>
+				</span>
+        </li>
+        <li onclick="CropRawPhoto()">
+					<span class="item">CropRawPhoto
+					<div class="chs">图片裁剪</div>
+				</span>
+        </li>
+        <li onclick="BackWebview()">
+					<span class="item">BackWebview
+					<div class="chs">webviewback</div>
+				</span>
+        </li>
+        <li onclick="Navigation()">
+					<span class="item">Navigation
+					<div class="chs">高德导航</div>
+				</span>
+        </li>
+        <li onclick="GeocodeSearchByName()">
+					<span class="item">GeocodeSearchByName
+					<div class="chs">文字转经纬度</div>
+				</span>
+        </li>
+        <li onclick="getLocalPhoneNumber()">
+					<span class="item">getLocalPhoneNumber
+					<div class="chs">获取手机号</div>
+				</span>
+        </li>
+        <li onclick="installApk()">
+					<span class="item">installApk
+					<div class="chs">安装apk</div>
+				</span>
+        </li>
+        <li onclick="getUniqueID()">
+					<span class="item">getUniqueID
+					<div class="chs">获取手机唯一标识</div>
+				</span>
+        </li>
+        <li onclick="getPhoneType()">
+					<span class="item">getPhoneType
+					<div class="chs">获取手机型号</div>
+				</span>
+        </li>
+        <li onclick="getWifiInfo()">
+					<span class="item">getWifiInfo
+					<div class="chs">获取wifimac地址</div>
+				</span>
+        </li>
+        <li onclick="openFile()">
+					<span class="item">openFile
+					<div class="chs">打开文件</div>
+				</span>
+        </li>
+        <li onclick="openFileBySelecting()">
+					<span class="item">openFileBySelecting
+					<div class="chs">选择软件打开文件</div>
+				</span>
+        </li>
+        <li onclick="setResult()">
+					<span class="item">setResult
+					<div class="chs">返回结果</div>
+				</span>
+        </li>
+        <li onclick="speedBroadcast()">
+					<span class="item">speedBroadcast
+					<div class="chs">语音播报</div>
+				</span>
+        </li>
+        <li onclick="stopspeedBroadcast()">
+					<span class="item">stopspeedBroadcast
+					<div class="chs">停止语音播报</div>
+				</span>
+        </li>
+        <li onclick="startSpeechKnow()">
+					<span class="item">startSpeechKnow
+					<div class="chs">开始语音识别</div>
+				</span>
+        </li>
+        <li onclick="stopSpeechKnow()">
+					<span class="item">stopSpeechKnow
+					<div class="chs">停止语音识别</div>
+				</span>
+        </li>
+        <li onclick="cancleSpeechKnow()">
+					<span class="item">cancleSpeechKnow
+					<div class="chs">取消语音识别</div>
+				</span>
+        </li>
+        <li onclick="openNewWebView()">
+					<span class="item">openNewWebView
+					<div class="chs">重新开启WebViewActivity</div>
+				</span>
+        </li>
+        <li onclick="closeNewWebView()">
+					<span class="item">closeNewWebView
+					<div class="chs">结束WebViewActivity</div>
+				</span>
+        </li>
+        <li onclick="GetCacheSize()">
+					<span class="item">GetCacheSize
+					<div class="chs">获取缓存大小</div>
+				</span>
+        </li>
+        <li onclick="ClearCache()">
+					<span class="item">ClearCache
+					<div class="chs">清除缓存</div>
+				</span>
+        </li>
+        <li onclick="isNetworkConnected()">
+					<span class="item">isNetworkConnected
+					<div class="chs">判断是否有网</div>
+				</span>
+        </li>
+        <li onclick="registerSensorShake()">
+					<span class="item">registerSensorShake
+					<div class="chs">注册摇一摇</div>
+				</span>
+        </li>
+        <li onclick="unregisterSensorShake()">
+					<span class="item">unregisterSensorShake
+					<div class="chs">取消注册摇一摇</div>
+				</span>
+        </li>
+
+        <li onclick="ping('baidu.com')">
+					<span class="item">ping
+					<div class="chs">ping</div>
+				</span>
+        </li>
+
+        <li onclick="getJpushRegistrationID()">
+					<span class="item">getJpushRegistrationID
+					<div class="chs">获取极光推送的registerID</div>
+				</span>
+        </li>
+        <li onclick="createfile()">
+					<span class="item">createfile
+					<div class="chs">文件创建</div>
+				</span>
+        </li>
+        <!--<li onclick="jumpwebview()">-->
+        <!--<span class="item">jumpwebview-->
+        <!--<div class="chs">跳转Webview</div>-->
+        <!--</span>-->
+        <!--</li>-->
+
+        <!--<li onclick="resulton()">-->
+        <!--<span class="item">resulton-->
+        <!--<div class="chs">返回Webview</div>-->
+        <!--</span>-->
+        <!--</li>-->
+        <li onclick="getBuildVersion()">
+					<span class="item">getBuildVersion
+					<div class="chs">获取系统版本</div>
+				</span>
+        </li>
+        <li onclick="createFolder()">
+					<span class="item">createFolder
+					<div class="chs">文件夹创建</div>
+				</span>
+        </li>
+
+        <li onclick="dirIsExists()">
+					<span class="item">dirIsExists
+					<div class="chs">判断文件夹是否存在</div>
+				</span>
+        </li>
+        <li onclick="writeExternal()">
+					<span class="item">writeExternal
+					<div class="chs">文本文件写</div>
+				</span>
+        </li>
+        <li onclick="readExternal()">
+					<span class="item">readExternal
+					<div class="chs">文本文件读</div>
+				</span>
+        </li>
+        <li onclick="getFilesAllName()">
+					<span class="item">getFilesAllName
+					<div class="chs">获取文件夹所有文件名称</div>
+				</span>
+        </li>
+        <li onclick="deleteDir()">
+					<span class="item">deleteDirdeleteDir
+					<div class="chs">删除文件夹</div>
+				</span>
+        </li>
+        <li onclick="addContact()">
+					<span class="item">addContact
+					<div class="chs">添加联系人</div>
+				</span>
+        </li>
+        <li onclick="getAllContacts()">
+					<span class="item">getAllContacts
+					<div class="chs">获取所有联系人信息</div>
+				</span>
+        </li>
+        <li onclick="updataCotact()">
+					<span class="item">updataCotact
+					<div class="chs">修改联系人</div>
+				</span>
+        </li>
+        <li onclick="deleteContact()">
+					<span class="item">deleteContact
+					<div class="chs">删除联系人</div>
+				</span>
+        </li>
+        <li onclick="getSimMessage()">
+					<span class="item">getSimMessage
+					<div class="chs">获取SIM卡信息</div>
+				</span>
+        </li>
+
+        <li onclick="getAllMessage()">
+					<span class="item">getAllMessage
+					<div class="chs">获取系统短信</div>
+				</span>
+        </li>
+
+        <li onclick="pictakephoto()">
+					<span class="item">pictakephoto
+					<div class="chs">拍照and相册</div>
+				</span>
+        </li>
+
+        <li onclick="registerShakeOrRing()">
+					<span class="item">registerShakeOrRing
+					<div class="chs">震动响铃</div>
+				</span>
+        </li>
+        <li onclick="stopRing()">
+					<span class="item">stopRing
+					<div class="chs">停止响铃</div>
+				</span>
+        </li>
+		<li onclick="alipay()">
+					<span class="item">alipay
+					<div class="chs">支付宝支付</div>
+				</span>
+		</li>
+		<li onclick="wxpay()">
+					<span class="item">wxpay
+					<div class="chs">微信支付</div>
+				</span>
+		</li>
+    </ul>
+</div>
+
+<script src="js/mui.min.js"></script>
+<script src="plugins/zepto.min.js"></script>
+<script src="bridge.js"></script>
+<script>
+			mui.init({
+				swipeBack: false
+			});
+
+			$(function(){
+			Mplat.init(function(){
+			//原生调用
+			});
+			});
+			//在线调试
+			function debug(){
+               Mplat.debug(function(data) {
+
+				});
+			}
+
+         /**
+			 * 扫描
+			 * @param {Object}  callback（回调函数，返回data ）
+			 */
+			function scanGetCode() {
+				Mplat.scanGetCode({
+				params: {
+				"width":"800",
+				"height":"800"
+				},					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+  /**
+			 * 保持屏幕长亮
+			 * @param {Object}  callback（回调函数，返回data ）
+			 */
+			function keepScreenOn() {
+			   Mplat.KeepScreenOn(function(data) {
+					mui.toast(data);
+				});
+
+			}
+			//横竖屏判断
+			function LandscapeOrPortrait(){
+			     Mplat.LandscapeOrPortrait(function(data) {
+					mui.toast(data);
+				});
+				}
+
+
+			function lockScreen(){
+			     Mplat.lockScreen(function(data) {
+					mui.toast(data);
+				});
+				}
+           //支付宝支付
+			function alipay(){
+			     Mplat.alipay({
+				    params: {
+				    orderInfo:'app_id=2019052465390259&biz_content=%7B%22timeout_express%22%3A%2260m%22%2C%22product_code%22%3A%22QUICK_MSECURITY_PAY%22%2C%22total_amount%22%3A0.01%2C%22subject%22%3A%22pb%E7%89%A9%E8%81%94%E5%8D%A1%E5%85%85%E5%80%BC%22%2C%22out_trade_no%22%3A%2200962020021314415295201516218153%22%7D&charset=utf-8&method=alipay.trade.app.pay&notify_url=http%3A%2F%2F211.138.236.210%3A9400%2Fnotify%2Falipay%2Fpayment%2Fv1%2FnotifyAlipay&sign=PV1VtTUYSKzeJM1GXnfBvedzmtKfSJJhwxB39dlY3rOZasAChiX2GVy%2FYNOvsXs%2BNjdKFNTsMZyXYtnFvE%2FRkKy4gQFa9PJhR4llJrdBavwmGIcOEjADe9xN2qhYAB%2BEBTckCmoKYdNM46NDBucmUi3ICgnw9d5kYGANcJ9fqT3Rz%2FPq%2B3m0t%2BVhzbQJAkjbAhIDiXTwluWJkC4Xfap9LtsCjL%2B25KKgPYjbO%2FjwQxnwUNkJn%2FgKVfYkI1oX%2FzM41dfbzKi5ayO1ooebYNK%2FGG%2BNwvuo60WAdBmt%2FXKkyTLSxUQsMG9C9UltvBFBHnlLkYL30FRmwsXzX4i4NB%2F79g%3D%3D&sign_type=RSA2&timestamp=2020-02-13+14%3A41%3A56&version=1.0',
+				    isShowPayLoading:true
+				     },
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+         //微信支付
+			function wxpay(){
+			     Mplat.wxpay({
+				    params: {
+                       partnerid:"1537075471",
+                       prepayid:"wx2015392694107803657258a21887977200",
+                       noncestr:"u770xoEOeelknJJ4uDFolQ05MK84X8p8",
+                       timestamp:"1582184367",
+                       package:"Sign=WXPay",
+                       sign:"5011C5AB0BEAB0FBB7FEAC0CAA002632"
+				     },
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+		function takePhotosWithIdentity() {
+					Mplat.takePhotosWithIdentity({
+					params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+
+			}
+
+			function ping(ip){
+			    Mplat.ping({
+					params: {
+					addressIp:ip
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+			}
+
+
+
+			function goNextPage(id, url) {
+				mui.openWindow({
+					id: id,
+					url: url,
+					extras: {},
+					waiting: {
+						autoShow: true,
+						title: "正在加载！"
+					}
+				});
+			}
+
+			//录音
+			function recordVoice() {
+				Mplat.recordVoice({
+					params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+			//开始录音
+			function startRecordVoice() {
+				Mplat.startRecordVoice({
+					params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+		//取消录音
+			function cancleRecordVoice() {
+				Mplat.cancleRecordVoice({
+					params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+			//停止录音
+			function stopRecordVoice() {
+				Mplat.stopRecordVoice({
+					params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+//播放录音
+			function playVoice() {
+				Mplat.playVoice({
+					params: {
+						"playPath":"/storage/emulated/0/framwork/voice/1558662601235temp.wav"
+					},
+					callback: function(data) {
+
+						mui.toast(data);
+					}
+				});
+			}
+//播放音乐
+			function playVoiceWithNoUI() {
+				Mplat.playVoiceWithNoUI({
+					params: {
+						"playPath":"http://it.jisu8.cn:20007/yunxin/MTAwMDAwNg==/bmltYV8zMDQyMV8xNTc0OTIxNzgwNDkzXzliM2MxMjZkLTM0ZmEtNDQyOC05OTA5LTAyYjliZjVhNWNhZg=="
+					},
+					callback: function(data) {
+
+						mui.toast(data);
+					}
+				});
+			}
+			//停止播放
+				function stopVoiceWithNoUI() {
+				Mplat.stopVoiceWithNoUI({
+					params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+//录制视频
+			function RecordVideo() {
+			Mplat.RecordVideo({
+				 	params: {
+				 	  "maxDuration":20000  //最大录制时长（毫秒数）
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+
+			//播放视频
+			function playVideo() {
+				Mplat.playVideo({
+					params: {
+						<!--"playPath":"/storage/emulated/0/DCIM/video/video_1552978361279.mp4"-->
+						"playPath":"/data/data/com.ustckdgc.mobile.framework/files/testVideo.mp4"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+				//文件下载
+			function DownLoadFile(){
+			     Mplat.DownLoadFile({
+				 	params: {
+				 	    "flag":"1",
+						"loadpath": "https://it.jisu8.cn:9999/hfile/dget.file?id=WY-bmltYV8zMDQyMV8xNTgxOTIyNjM1NDM0XzNhNjEyZDljLWEwMDItNDE4OS05NmI2LWE4ZWMyYmU1YWQyMw==",
+						"savename":"wangy"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+					//断点下载文件
+			function BreakPointDownloadFile(){
+			     Mplat.BreakPointDownloadFile({
+				 	params: {
+				 	    "username":"username",
+						"loadpath": "http://sqdd.myapp.com/myapp/qqteam/AndroidQQ/mobileqq_android.apk",
+						"savename":"wangy"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+				//获取文件大小
+			function GetFileSize(){
+			     Mplat.GetFileSize({
+				 	params: {
+						"savepath":"/storage/emulated/0/mplat/image/看看.jpg"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+//横竖屏判断
+			function LandscapeOrPortrait(){
+			     Mplat.LandscapeOrPortrait(function(data) {
+					mui.toast(data);
+				});
+				}
+
+				//联系人操作
+				function addressBook() {
+				Mplat.addressBook(function(data) {
+					mui.toast(data);
+					});
+			}
+//获取当前位置信息
+			function getLocationInfo(){
+			     Mplat.getLocationInfo(function(data) {
+					mui.toast(data);
+				});}
+
+						//改变屏幕亮度
+			function changeScreenIntensity(){
+			     Mplat.changeScreenIntensity(function(data) {
+					mui.toast(data);
+				});
+				}
+					//获取屏幕亮度
+			function SystemBrightness(){
+			     Mplat.SystemBrightness(function(data) {
+					mui.toast(data);
+				});
+				}
+						//获取手机声音大小
+			function getvoice(){
+			     Mplat.getvoice(function(data) {
+					mui.toast(data);
+				});
+				}
+				//删除文件
+			function DeleteFile(){
+			     Mplat.DeleteFile({
+				 	params: {
+						"filepath":"/storage/emulated/0/服务保障智能客户端/Log/2018-06-25/MonitorLog2018-06-25.zip"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+
+				 <!--//文件是否存在-->
+          function FileIsExists(){
+			    Mplat.FileIsExists({
+					params: {
+					filepath:"/storage/emulated/0/DCIM/video/video_1531300757933.mp4"
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+				//中断文件下载
+				function CancelDownLoad(){
+			     Mplat.CancelDownLoad(function(data) {
+					mui.toast(data);
+				});}
+				//停止文件下载
+				function stopDownload(){
+			     Mplat.stopDownload(function(data) {
+					mui.toast(data);
+				});}
+				//获取getIntent
+				function getIntent(){
+				 Mplat.getIntent({
+				 	params: {},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				<!--,/storage/emulated/0/mplat/image/yu_1541061022313.jpg-->
+				function uploadFile(){
+				 Mplat.uploadFile({
+				 	params: {
+						"fileList":"/storage/emulated/0/mplat/image/oo_1540968619585.jpg,/storage/emulated/0/mplat/image/yu_1541061022313.jpg",
+						"url":"http://60.174.249.204:30002/eip-app/static/index/api/examine/saveTipsBar",
+						"params":{"userId":"111111","context":"测试","latitude":"120.09","longitude":"37.32","location":"科大国创","clientType":"vivo y67"}
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				//显示加载框
+				function showLoading(){
+				 Mplat.showLoading({
+				 	params: {
+						"showInfo":"正在下载",
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				//关闭加载框
+				function cancelLoading(){
+				Mplat.cancelLoading(function(data) {
+					mui.toast(data);
+				});
+				}
+
+				//弹出数字软键盘
+				function showkeyboard(){
+				Mplat.showkeyboard( {
+					params: {
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+				//弹出吐司
+			function showToase(){
+			   Mplat.showToase( {
+					params: {
+						"message":"不可为空"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+                }
+				//弹出Dialog
+				function showDialog(){
+				Mplat.showDialog( {
+					params: {
+						"dialogtype":"2",
+						"message":"你确定退出吗？",
+						"title":"提示框",
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+				//获取基站信息
+			function stationmessage(){
+			     Mplat.stationmessage(function(data) {
+					mui.toast(data);
+				});
+				}
+				//设置sharepreferce
+				function setSpference(){
+				Mplat.setSpference( {
+					params: {
+						"key":"username1",
+						"value":"wangying1"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				//获取sharepreferce
+				function getSpference(){
+				Mplat.getSpference( {
+					params: {
+						"key":"username1"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+//清除sharepreferce
+				function clearSpference(){
+				Mplat.clearSpference( {
+					params: {
+						"key":"username,username1"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+//文件选择
+			function choosefile(){
+			     Mplat.choosefile(function(data) {
+					mui.toast(data);
+				});
+				}
+//外网ip和本地ip
+			function getnetip(){
+			     Mplat.getnetip(function(data) {
+					mui.toast(data);
+				});
+				}
+				//获取网络状态
+			function getCurrentNetType(){
+			     Mplat.getCurrentNetType(function(data) {
+					mui.toast(data);
+				});
+				}
+				//获取手机设备信息
+			function devicesmessage(){
+			     Mplat.devicesmessage(function(data) {
+					mui.toast(data);
+				});
+				}
+				//获取手机屏幕像素信息
+			function getDisplayMetrics(){
+			     Mplat.getDisplayMetrics(function(data) {
+					mui.toast(data);
+				});
+				}
+					//获取总内存和可用内存
+			function getMemory(){
+			     Mplat.getMemory(function(data) {
+					mui.toast(data);
+				});
+				}
+	//获取app的版本信息
+			function getPackageInfo(){
+			     Mplat.getPackageInfo(function(data) {
+					mui.toast(data);
+				});
+				}
+		//通过包名获取版本信息
+			function getPackageInfobyname(){
+			     Mplat.getPackageInfobyname({
+				 	params: {
+						"packagename":"com.wangy.application"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+					//通过包名打开已安装的apk
+			function getopenappbyname(){
+			     Mplat.getopenappbyname({
+				 	params: {
+						"packagename":"com.ustcinfo.mobile.sms",
+						"packstartpath":"com.ustcinfo.mobile.sms.ui.activity.SplashActivity"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				http://www.cnspsp.cn:18688/group1/M00/22/BB/wKgBg1qgkuuEOXODAAAAADGQcSQ923.apk
+				//下载安装apk
+			function openapkinstall(){
+			     Mplat.openapkinstall({
+				 	params: {
+						"url":"http://eas.fj-sanbao.com:11212/upload/appendix/20181204150921app-release_legu_signed_zipalign.apk",
+						"apkname":"wangy",
+						"title":"app版本升级"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+							//卸载
+			function unloadApp(){
+			     Mplat.unloadApp({
+				 	params: {
+						"packageName":"cn.ustcinfo.jtth"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+					//拨号
+					<!--18756006094-->
+			function telephoneCall(){
+			     Mplat.telephoneCall({
+				 	params: {
+						"telNum":"15656552120"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+function getTelephoneMessage(){
+			     Mplat.getTelephoneMessage({
+				 	params: {
+						"telNum":"18705600357"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+	//finishwebview
+			function finishWebview(){
+			     Mplat.finishWebview(function(data) {
+					mui.toast(data);
+				});
+				}
+//解压
+			function upZipFile() {
+				Mplat.upZipFile({
+					params: {
+						"path":"/storage/emulated/0/服务保障智能客户端/Log/2018-06-25/MonitorLog2018-06-25.zip"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+//压缩
+			function zipFile() {
+				Mplat.zipFile({
+					params: {
+						"path":"/storage/emulated/0/服务保障智能客户端/Log/2018-06-25/MonitorLog2018-06-25.txt"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+
+			<!--/storage/emulated/0/mplat/image/科技_1532316515410.jpg-->
+			<!--/storage/emulated/0/mplat/image/条件_1451697724067.jpg-->
+			//图片裁剪
+			function CropRawPhoto() {
+				Mplat.CropRawPhoto({
+					params: {
+						<!--"path":"/storage/emulated/0/mplat/image/test.jpg",-->
+						"path":"/data/data/com.ustckdgc.mobile.framework/files/0707.png",
+						"aspectX":"1",
+						"aspectY":"1"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+			}
+//导航
+			function Navigation(){
+			     Mplat.Navigation({
+				 	params: {
+						"startlatitude":"31.827226",
+						"startlongitude":"117.138888",
+						"endlatitude":"31.844341",
+						"endlongitude":"117.136595",
+						"Routetype":"0"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+
+//文字转经纬度
+			function GeocodeSearchByName(){
+			     Mplat.GeocodeSearchByName({
+				 	params: {
+						"addressname":"安徽省合肥市皖水公寓",
+						"cityname":"合肥"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				//返回webview
+			function BackWebview(){
+			     Mplat.BackWebview(function(data) {
+					mui.toast(data);
+				});
+				}
+
+				//获取手机号
+			function getLocalPhoneNumber(){
+			     Mplat.getLocalPhoneNumber(function(data) {
+					mui.toast(data);
+				});
+				}
+				//安装apk
+			function installApk(){
+			     Mplat.installApk({
+				 	params: {
+						"apkPath":"/data/data/com.ustckdgc.mobile.framework/files/app-debug.apk"
+					},
+					callback: function(data) {
+						mui.toast(data);
+					}
+				});
+				}
+				//唯一标识
+			function getUniqueID(){
+			    Mplat.getUniqueID({
+				params:{},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				//手机型号
+			function getPhoneType(){
+			    Mplat.getPhoneType({
+				params:{},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				//wifi地址
+			function getWifiInfo(){
+			    Mplat.getWifiInfo({
+				params:{},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				//设置状态栏
+				function modifyStatus(){
+				   Mplat.modifyStatus({
+				   params:{
+                       "statusColor":"#06A7FF",
+	                   "statusAlpha":"0.1",
+                       "textColor":"1"
+				   },
+				   callback:function(data){
+				     mui.toast(data);
+				   }
+				   });
+				}
+				//打开文件
+			function openFile(){
+			    Mplat.openFile({
+					params: {
+						"filePath":"/storage/emulated/0/账上装维原生功能梳理.xls"
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+					//选择软件打开文件
+			function openFileBySelecting(){
+			    Mplat.openFileBySelecting({
+					params: {
+						"filePath":"/storage/emulated/0/tes1.doc"
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+//返回结果
+			function setResult(){
+			    Mplat.setResult({
+					params: {
+						"result":"kkkkkkk"
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+//语音播报
+			function speedBroadcast(){
+			    Mplat.speedBroadcast({
+					params: {
+						"text":"你好呀小傻瓜哈哈哈哈哈"
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+//停止语音播报
+			function stopspeedBroadcast(){
+			    Mplat.stopspeedBroadcast({
+					params: {
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+//开始语音识别
+			function startSpeechKnow(){
+			    Mplat.startSpeechKnow({
+					params: {
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+//停止语音识别
+			function stopSpeechKnow(){
+			    Mplat.stopSpeechKnow({
+					params: {
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				//辅助H5页面定位
+				function startH5AssistantLocation(){
+                   Mplat.startH5AssistantLocation(function(data) {
+                      //回调里面跳转页面（h5写法，此处仅供参考）
+					  //goNextPage('assistantLocation','page/h5AssistantLocation.html');
+					  window.location.href="../demo/page/h5AssistantLocation.html";
+
+				});
+
+				}
+					//停止辅助H5页面定位
+				function stopH5AssistantLocation(){
+                   Mplat.stopH5AssistantLocation(function(data) {
+                     });
+
+				}
+//取消语音识别
+			function cancleSpeechKnow(){
+			    Mplat.cancleSpeechKnow({
+					params: {
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+			function cancleSpeedKnow(){
+			    Mplat.cancleSpeedKnow({
+					params: {
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				//重新开启WebViewActivity
+			function openNewWebView(){
+			    Mplat.openNewWebView({
+					params: {
+					"url":"https://yxyy.realnameonline.cn:20009/edcreg-web/videorealname/videorealnameStandard/sc-front.html?transactionId=108520190423161309439586&sourceCode=230030",
+					"parameters":""
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				//结束WebViewActivity
+			function closeNewWebView(){
+			    Mplat.closeNewWebView({
+					params: {
+					"params":"哈哈",
+					"jsMethodName":"test"
+					},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+				function test(result){
+				 mui.toast(result);
+				}
+
+				//获取缓存大小
+			function GetCacheSize(){
+			    Mplat.GetCacheSize({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+				//清除缓存
+			function ClearCache(){
+			    Mplat.ClearCache({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+			function isNetworkConnected(){
+			    Mplat.isNetworkConnected({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+function zhimaCertify(){
+			    Mplat.zhimaCertify({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+function registerSensorShake(){
+			    Mplat.registerSensorShake({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+function unregisterSensorShake(){
+			    Mplat.unregisterSensorShake({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+				function getJpushRegistrationID(){
+				 Mplat.getJpushRegistrationID({
+				 params:{
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+
+			}
+			function getBuildVersion(){
+			    Mplat.getBuildVersion({
+					params: {},
+				callback: function(data) {
+				     mui.toast(data);
+					}
+				});
+				}
+
+
+				function createfile(){
+				 Mplat.createfile({
+				 params:{
+				 	"filePath":"/storage/emulated/0/framwork/222.txt"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+
+			}
+
+function createFolder(){
+				 Mplat.createFolder({
+				 params:{
+				 	"foldPath":"/storage/emulated/0/wangy/"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+			function dirIsExists(){
+				 Mplat.dirIsExists({
+				 params:{
+				 	"foldPath":"/storage/emulated/0/wangy/"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+			function writeExternal(){
+				 Mplat.writeExternal({
+				 params:{
+				 	"filePath":"/storage/emulated/0/wangy.txt",
+				 	"content":"哈哈"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+function readExternal(){
+				 Mplat.readExternal({
+				 params:{
+				 	"filePath":"/storage/emulated/0/wangy.txt"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+function getFilesAllName(){
+				 Mplat.getFilesAllName({
+				 params:{
+				 	"foldPath":"/storage/emulated/0/framwork/"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+function deleteDir(){
+				 Mplat.deleteDir({
+				 params:{
+				 	"foldPath":"/storage/emulated/0/wangy/"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+			function addContact(){
+				 Mplat.addContact({
+				 params:{
+				 	"contactname":"wangy",
+				 	"contactphone":"15656552121"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+			function getAllContacts(){
+				 Mplat.getAllContacts({
+				 params:{ },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+			function updataCotact(){
+				 Mplat.updataCotact({
+				 params:{
+				    "newname":"wangy1",
+				 	"oldphone":"15656552121",
+				 	"newphone":"15656552122"
+				  },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+	function deleteContact(){
+				 Mplat.deleteContact({
+				 params:{
+				 "phone":"15656552121"
+				  },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+			function getSimMessage(){
+				 Mplat.getSimMessage({
+				 params:{},
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+			function getAllMessage(){
+				 Mplat.getAllMessage({
+				 params:{},
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+			function pictakephoto(){
+				 Mplat.pictakephoto({
+				 params:{
+				 "picNum": 2,
+				 "keyword": "wangy"
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+			function registerShakeOrRing(){
+				 Mplat.registerShakeOrRing({
+				 params:{
+				 "flag": 1
+				 },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+
+			}
+
+			function stopRing(){
+				 Mplat.stopRing({
+				 params:{ },
+				 callback: function(data){
+				    mui.toast(data);
+					}
+				 });
+			}
+
+			function onProgressUpdate(progress,size){
+                     console.log(progress,size);
+			}
+
+
+</script>
+</body>
+</html>

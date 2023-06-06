@@ -1,0 +1,7 @@
+1.修改应用标题：
+修改string.xml文件里app_name对应的值
+2.修改应用LOGO:
+替换mipmap-hdpi文件夹下的ic_app_logo图片
+
+打包：
+找到AS右侧的Gradle,双击点开app的Tasks，build下有个assembleRelease双击编译正式版APK。编译完成后在release文件夹下就有正式版apk
